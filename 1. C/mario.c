@@ -14,6 +14,7 @@
  int main(void)
  {
     int height = 0;
+    int blocks = 1;
     
     for (;;)
     {
@@ -24,6 +25,22 @@
             break;
         
         printf("Height: %d\n", height);
+    }
+    
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < height - blocks; j++)
+        {
+            printf(" ");
+        }
+        
+        for (int k = 0; k < blocks + 1; k++)
+        {
+            printf("#");
+        }
+        
+        blocks++;
+        printf("\n");
     }
   
  }
