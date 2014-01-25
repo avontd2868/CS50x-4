@@ -23,9 +23,10 @@ int main(void)
      *  the height of the half-pyramid. Will only break out of the forever
      *  loop if the height is between 0 and 23
      */
+	 
     for (;;)
     {
-        printf("Please enter the height of the half-pyramid: ");
+		printf("Please enter the height of the half-pyramid: ");
         height = GetInt();
        
         if (height >= 0 && height <= 23)
@@ -36,8 +37,8 @@ int main(void)
    
     /*
      *  Print the half pyramid of height the user specified earlier
-     *  First print the approriate amount of spaces
-     *  Then print the approriate amount of blocks ('#')
+     *  First print the appropriate amount of spaces
+     *  Then print the appropriate amount of blocks ('#')
      *  Finally print the new line character and move onto the next row
      *  Will continue doing this until specified height is reached
      */    
