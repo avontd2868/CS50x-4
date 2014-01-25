@@ -10,11 +10,13 @@
  */
  
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
  
 int main(void)
 {
     float   change_req;
+    int     cents;
     
     printf("Oh hai! How much change is owed? ");
     
@@ -27,5 +29,8 @@ int main(void)
         
         printf("How much change is owed?\n");
     }
- 
+    
+    change_req *= 100;
+    cents = (int)round(change_req);
+
 }
