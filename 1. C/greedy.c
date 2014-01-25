@@ -21,6 +21,10 @@ int main(void)
     
     printf("Oh hai! How much change is owed? ");
     
+    /*
+     *  Keep on prompting the user how much change is required
+     *  Will break out of loop once an amount greater than 0 is specified
+     */
     for (;;)
     {
         change_req = GetFloat();
@@ -30,10 +34,17 @@ int main(void)
         
         printf("How much change is owed?\n");
     }
-
+    
+    // Convert the change required to cents and round
     change_req *= 100;
     cents = (int)round(change_req);
     
+    /*  
+     *  A loop to determine the minimum amount of coins required 
+     *  It will first keep on deducting 25c from amount before moving 
+     *  on the next amount
+     *  Each time a certain amount is deducted it will increment min_coins
+     */
     while (cents > 0)
     {
         while (cents >= 25)
