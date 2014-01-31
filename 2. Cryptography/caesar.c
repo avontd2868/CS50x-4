@@ -7,51 +7,61 @@
  *  By Johann Nel
  */
  
- #include <cs50.h>
- #include <ctype.h>
- #include <stdio.h>
- #include <stdlib.h>
+ void cipher_text(char p_text, int ascii_value, int key);
  
- int main(int argc, string argv[])
- {
-    if (argc == 2)
+#include <cs50.h>
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+ 
+#define UPPER_CASE 65   // ASCII value of 'A'
+#define LOWER_CASE 97   // ASCII value of 'a'
+
+int main(int argc, string argv[])
+{
+    if (argc != 2)
     {
+        printf("Please execute with only one argument!\n");
+        return 1;
+    }
+    else
+    {   
         int key = atoi(argv[1]);
         
         string p_text = GetString();
-          
+        
+        // Loop through each character and check whether alphabetical character
+        // If it is, check whether upper/lower case and print ciphertext
+        // Else print non-alphabetical character
         for (int i = 0, n = strlen(p_text); i < n; i++)
         {
             if (isalpha(p_text[i]))
             {
                 if (isupper(p_text[i]))
-                {
-                    // Convert to alphabetical order, zero indexed
-                    // Where 0 = 'A' and 25 = 'Z'
-                    int result = p_text[i] - 65;
-                    int wrap = (result + key)%26;
-                    // Convert back to ASCII
-                    printf("%c",wrap+65);
-                }
-                
+                    cipher_text(p_text[i], UPPER_CASE, key);
+                                
                 if (islower(p_text[i]))
-                {
-                    // Convert to alphabetical order, zero indexed
-                    // Where 0 = 'a' and 25 = 'z'
-                    int result = p_text[i] - 97;
-                    int wrap = (result + key)%26;
-                    // Convert back to ASCII
-                    printf("%c",wrap+97);
-                }
+                    cipher_text(p_text[i], LOWER_CASE, key);         
             }
             else
                 printf("%c", p_text[i]);
         }
         printf("\n");
     }
-    else
-    {   
-        printf("Please execute with only one argument!\n");
-        return 1;
-    }
- }
+}
+
+/*
+ *  A simple function to convert from ASCII to alphabetical order
+ *  and will wrap around and then convert back to ASCII.
+ *  This is to ensure that only alphabetical letters are printed
+ *  Will print cipherText
+ *  This will be zero indexed i.e. 0 = 'A', 25 = 'Z'
+ */
+void cipher_text(char p_text, int ascii_value, int key)
+{
+    int result = p_text - ascii_value;
+    int wrap = (result + key) % 26;
+    
+    printf("%c", wrap + ascii_value);
+}
