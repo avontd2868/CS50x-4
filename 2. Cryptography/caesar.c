@@ -8,6 +8,7 @@
  */
  
  #include <cs50.h>
+ #include <ctype.h>
  #include <stdio.h>
  #include <stdlib.h>
  
@@ -15,11 +16,38 @@
  {
     if (argc == 2)
     {
-        printf("%s\n", argv[1]);
-        int key = atoi(argv[1]);  // Convert string to int
+        int key = atoi(argv[1]);
         
         string p_text = GetString();
-        
+          
+        for (int i = 0, n = strlen(p_text); i < n; i++)
+        {
+            if (isalpha(p_text[i]))
+            {
+                if (isupper(p_text[i]))
+                {
+                    // Convert to alphabetical order, zero indexed
+                    // Where 0 = 'A' and 25 = 'Z'
+                    int result = p_text[i] - 65;
+                    int wrap = (result + key)%26;
+                    // Convert back to ASCII
+                    printf("%c",wrap+65);
+                }
+                
+                if (islower(p_text[i]))
+                {
+                    // Convert to alphabetical order, zero indexed
+                    // Where 0 = 'a' and 25 = 'z'
+                    int result = p_text[i] - 97;
+                    int wrap = (result + key)%26;
+                    // Convert back to ASCII
+                    printf("%c",wrap+97);
+                }
+            }
+            else
+                printf("%c", p_text[i]);
+        }
+        printf("\n");
     }
     else
     {   
