@@ -8,12 +8,16 @@
  */
  
  int ascii_alpha(char letter, int ascii_value);
+ void vigenere(char p_text, char keyword, int ascii_value);
  
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+ 
+#define UPPER_CASE 65   // ASCII value of 'A'
+#define LOWER_CASE 97   // ASCII value of 'a'
 
 int main(int argc, string argv[])
 {
@@ -37,6 +41,29 @@ int main(int argc, string argv[])
         string p_text       = GetString();
         string keyword      = argv[1];
         int    keyword_len  = strlen(keyword);
+      
+        // Loop through each character and check whether alphabetical character
+        // If it is, check whether upper/lower case and print ciphertext
+        // Else print non-alphabetical character
+        int j = 0;
+
+        for (int i = 0, n = strlen(p_text); i < n; i++)
+        {
+            if (isalpha(p_text[i]))
+            {
+                if (isupper(p_text[i]))
+                    // TO-DO, do ciphertext on phrase
+                           
+                if (islower(p_text[i]))
+                    // TO-DO, do ciphertext on phrase
+                
+                if (!isspace(p_text[i]))
+                    j++;
+            }
+            else
+                printf("%c", p_text[i]);    
+        }
+        printf("\n");
     }
 }
 
