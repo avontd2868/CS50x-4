@@ -7,6 +7,8 @@
  *  By Johann Nel
  */
  
+ int ascii_alpha(char letter, int ascii_value);
+ 
 #include <cs50.h>
 #include <ctype.h>
 #include <stdio.h>
@@ -31,7 +33,18 @@ int main(int argc, string argv[])
                 return 1;
             }
         }
-
     }
 }
 
+/*
+ *  ======================================================
+ *  A function to convert from ASCII to alphabetical index
+ *  'A' and 'a' = 0
+ *  'Z' and 'z' = 25
+ *  ======================================================
+ */
+int ascii_alpha(char letter, int ascii_value)
+{
+    int result;
+    return result = letter - ascii_value;
+}
