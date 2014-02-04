@@ -52,10 +52,10 @@ int main(int argc, string argv[])
             if (isalpha(p_text[i]))
             {
                 if (isupper(p_text[i]))
-                    // TO-DO, do ciphertext on phrase
+                    vigenere(p_text[i], keyword[j % keyword_len], UPPER_CASE);
                            
                 if (islower(p_text[i]))
-                    // TO-DO, do ciphertext on phrase
+                    vigenere(p_text[i], keyword[j % keyword_len], LOWER_CASE);
                 
                 if (!isspace(p_text[i]))
                     j++;
@@ -78,4 +78,28 @@ int ascii_alpha(char letter, int ascii_value)
 {
     int result;
     return result = letter - ascii_value;
+}
+
+/*
+ *  ======================================================
+ *  A function that does the vigenere cipher
+ *  Check whether keyword is upper/lower case and find
+ *  corresponding key value to be used
+ *  ======================================================
+ */
+ 
+void vigenere(char p_text, char keyword, int ascii_value)
+{
+    int key;
+                
+    if (isupper(keyword))
+        key = ascii_alpha(keyword, UPPER_CASE);
+                   
+    if (islower(keyword))
+        key = ascii_alpha(keyword, LOWER_CASE);
+        
+    int result = ascii_alpha(p_text, ascii_value);
+    int wrap = (result + key) % 26;
+    
+    printf("%c", wrap + ascii_value);
 }
