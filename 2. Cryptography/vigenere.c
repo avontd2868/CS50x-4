@@ -33,6 +33,10 @@ int main(int argc, string argv[])
                 return 1;
             }
         }
+        
+        string p_text       = GetString();
+        string keyword      = argv[1];
+        int    keyword_len  = strlen(keyword);
     }
 }
 
