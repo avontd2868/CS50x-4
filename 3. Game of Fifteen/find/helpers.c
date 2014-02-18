@@ -32,9 +32,25 @@ bool search(int value, int values[], int n)
 
 /**
  * Sorts array of n values.
+ * Bubble Sort
  */
 void sort(int values[], int n)
 {
-	// TODO: implement an O(n^2) sorting algorithm
-    return;  
+    // Iterate over list
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - 1; j++)
+        {
+            // Compare adjacent elements
+            // Largest Element will 'bubble' to the end
+            if (values[j] > values[j + 1])
+            {  
+                // Swap elements that are in the wrong order
+                int temp = values[j];
+                values[j] = values[j + 1];
+                values[j + 1] = temp;
+            }
+        }
+    }
+    
 }
