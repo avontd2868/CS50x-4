@@ -14,19 +14,38 @@
 
 /*
  * Returns true if value is in array of n values, else false.
+ * Binary Search
  */
 bool search(int value, int values[], int n)
 {
-    // Look at each element in the "haystack"
-    // If values[i] is equal to the value we are looking for
-    // return true
-    for (int i = 0; i < n; i++)
+    int lower_bound = 0;
+    int upper_bound = n - 1;
+    int mid_point;
+    
+    // while length of list > 0
+    while (lower_bound <= upper_bound)
     {
-        if (values[i] == value)
+        // look at middle of list
+        mid_point = (lower_bound +  upper_bound) / 2;
+        
+        // if number found, return true
+        if (values[mid_point] == value)
+        {
             return true;
+        }
+        // else if number higher, search left
+        else if (values[mid_point] > value)
+        {
+            upper_bound = mid_point - 1;
+        }
+        // else if number lower, search right
+        else if (values[mid_point] < value)
+        {
+            lower_bound = mid_point + 1;
+        }
     }
     
-    // Return false
+    // return false if number not found
     return false;
 }
 
@@ -51,6 +70,5 @@ void sort(int values[], int n)
                 values[j + 1] = temp;
             }
         }
-    }
-    
+    } 
 }
