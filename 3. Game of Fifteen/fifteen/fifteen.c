@@ -170,7 +170,7 @@ void draw(void)
         {   
             if (board[rows][columns] != BLANK_TILE)
             {
-				printf("\033[1;36m");
+				printf("\033[36m");
                 printf("%3d", board[rows][columns]);
             }
             else
