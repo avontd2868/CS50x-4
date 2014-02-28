@@ -156,7 +156,23 @@ void init(void)
  */
 void draw(void)
 {
-    // TODO
+    for (int rows = 0; rows < d; rows++)
+    {
+        for (int columns = 0; columns < d; columns++)
+        {   
+            if (board[rows][columns] != 0)
+            {
+                printf("%3d", board[rows][columns]);
+            }
+            else
+            {
+                blank_row = rows;
+                blank_col = columns;
+                printf("  *");
+            }
+        }
+        printf("\n");
+    }
 }
 
 /**
