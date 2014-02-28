@@ -131,7 +131,24 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+    int values = d*d;
+    
+    for (int rows = 0; rows < d; rows++)
+    {
+        for (int columns = 0; columns < d; columns++)
+        {
+            board[rows][columns] = --values;
+        }
+    }
+    
+    // Simple function to swap "2" and "1"
+    // If the dimensions of the board is found to be even
+    if (d % 2 == 0)
+    {
+        int tmp = board[d-1][d-2];
+        board[d-1][d-2] = board[d-1][d-3];
+        board[d-1][d-3] = tmp;
+    }
 }
 
 /**
