@@ -28,6 +28,9 @@
 // board's maximal dimension
 #define MAX 9
 
+// blank tile
+#define BLANK_TILE 0
+
 // board, whereby board[i][j] represents row i and column j
 int board[MAX][MAX];
 
@@ -165,7 +168,7 @@ void draw(void)
     {
         for (int columns = 0; columns < d; columns++)
         {   
-            if (board[rows][columns] != 0)
+            if (board[rows][columns] != BLANK_TILE)
             {
                 printf("%3d", board[rows][columns]);
             }
@@ -230,7 +233,7 @@ bool won(void)
 			    {
 			        start_value++;
 			        count++;
-				    if (count == d*d-1 && board[d-1][d-1] == 0) 
+				    if (count == d*d-1 && board[d-1][d-1] == BLANK_TILE) 
 				        return true;
 			    }		
         }
