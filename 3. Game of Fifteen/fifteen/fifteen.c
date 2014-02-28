@@ -33,6 +33,9 @@ int board[MAX][MAX];
 
 // board's dimension
 int d;
+int found_row, found_col = 0;
+int blank_row, blank_col = 0;
+int swap_row,  swap_col  = 0;
 
 // prototypes
 void clear(void);
@@ -42,6 +45,8 @@ void draw(void);
 bool move(int tile);
 bool won(void);
 void save(void);
+bool findTile(int t);
+void swap_tiles();
 
 int main(int argc, string argv[])
 {
@@ -181,7 +186,30 @@ void draw(void)
  */
 bool move(int tile)
 {
-    // TODO
+    // Check whether tile is on the board
+    if (findTile(tile))
+    {
+        // Check to see if blank tile's row position is equal to selected tile's row position
+        if (blank_row + 1 == found_row || blank_row - 1 == found_row)
+        {
+            // To ensure only selecting tile below or above blank tile (column position stays the same)
+            if (blank_col == found_col)
+            {
+                swap_tiles();
+                return true;
+            }
+        }
+        // Check to see if blank tile's column position is equal to selected tile's column position   
+        if (blank_col + 1 == found_col || blank_col - 1 == found_col)
+        {
+            // To ensure only selecting tiles left or right of blank tile (row position stays the same)
+            if (blank_row == found_row)
+            {
+                swap_tiles();
+                return true;
+            }
+        }
+    }
     return false;
 }
 
@@ -241,4 +269,35 @@ void save(void)
 
     // close log
     fclose(p);
+}
+
+/*
+ *  A simple function to find the position of a tile
+ *  Will return true if the tile is found, otherwise false if not found
+ */
+bool findTile(int tile)
+{
+    for (int rows = 0; rows < d; rows++)
+    {
+        for (int columns = 0; columns < d; columns++)
+        {   
+            if (board[rows][columns] == tile)
+            {
+                found_row = rows;
+                found_col = columns;
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+/*
+ *  A simple function to swap the position of two tiles
+ */
+void swap_tiles()
+{
+    int tmp = board[found_row][found_col];
+    board[found_row][found_col] = board[blank_row][blank_col];
+    board[blank_row][blank_col] = tmp;
 }
