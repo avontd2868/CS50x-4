@@ -177,7 +177,7 @@ void draw(void)
             {
                 blank_row = rows;
                 blank_col = columns;
-				printf("\033[1;31m");
+				printf("\033[31m");
                 printf("  *");
             }
         }
