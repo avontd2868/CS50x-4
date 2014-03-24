@@ -87,6 +87,9 @@ int main(void)
 	// initial velocity for x and y
     double x_velocity = drand48() + 2.0;
     double y_velocity = drand48() + 2.0;
+	
+	// wait for click before starting the game
+    waitForClick();
 
     // keep playing until game over
     while (lives > 0 && bricks > 0)
@@ -112,10 +115,12 @@ int main(void)
 		// move ball along y-axis
         move(ball, x_velocity, y_velocity);
 
-        // bounce off bottom edge of window
+        // reset ball location and lose a life if ball collides with bottom edge of window
         if (getY(ball) + getWidth(ball) >= getHeight(window))
         {
-            y_velocity = -y_velocity;
+            lives--;
+            setLocation(ball, WIDTH / 2 - RADIUS, HEIGHT / 2 - RADIUS);
+            waitForClick();
         }
 
         // bounce off top edge of window
