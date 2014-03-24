@@ -143,6 +143,7 @@ int main(void)
             }
             else if (strcmp(getType(object), "GRect") == 0)
             {
+				removeGWindow(window, object);
                 y_velocity = -y_velocity;
             }
         }
