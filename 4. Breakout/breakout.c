@@ -217,8 +217,11 @@ GRect initPaddle(GWindow window)
  */
 GLabel initScoreboard(GWindow window)
 {
-    // TODO
-    return NULL;
+    GLabel label = newGLabel("");
+    setFont(label, "SansSerif-36");
+    add(window, label);
+    
+    return label;
 }
 
 /**
