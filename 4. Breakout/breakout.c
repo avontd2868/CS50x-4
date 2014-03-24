@@ -101,6 +101,36 @@ int main(void)
                 setLocation(paddle, x, HEIGHT - PADDLE_HEIGHT - (PADDLE_HEIGHT * BOTTOM_PADDING));
             }
         }
+		
+		        // move ball along y-axis
+        move(ball, x_velocity, y_velocity);
+
+        // bounce off bottom edge of window
+        if (getY(ball) + getWidth(ball) >= getHeight(window))
+        {
+            y_velocity = -y_velocity;
+        }
+
+        // bounce off top edge of window
+        else if (getY(ball) <= 0)
+        {
+            y_velocity = -y_velocity;
+        }
+
+        // bounce off right edge of window
+        if (getX(ball) + getWidth(ball) >= getWidth(window))
+        {
+            x_velocity = -x_velocity;
+        }
+
+        // bounce off left edge of window
+        else if (getX(ball) <= 0)
+        {
+            x_velocity = -x_velocity;
+        }
+        
+        // linger before moving again
+        pause(10);
     }
 
     // wait for click before exiting
