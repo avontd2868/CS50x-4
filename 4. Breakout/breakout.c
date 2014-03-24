@@ -43,6 +43,10 @@
 // bottom Padding
 #define BOTTOM_PADDING   4
 
+// gap between each brick in pixels
+#define VERTICAL_GAP         4
+#define HORIZONTAL_GAP       4
+
 // prototypes
 void initBricks(GWindow window);
 GOval initBall(GWindow window);
@@ -112,7 +116,25 @@ int main(void)
  */
 void initBricks(GWindow window)
 {
-    // TODO
+    char* colours[5] = {"BLUE","GREEN","MAGENTA","CYAN", "PINK"};
+    int brick_width  = WIDTH/COLS;
+    int brick_height = (HEIGHT/ROWS)/8;
+    int pos_x        = HORIZONTAL_GAP/2;
+    int pos_y        = (HEIGHT/ROWS)/2;
+    
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLS; j++)
+        {
+            GRect rect = newGRect(pos_x , pos_y, brick_width - HORIZONTAL_GAP, brick_height - VERTICAL_GAP);
+            setFilled(rect, true);
+            setColor(rect, colours[i]);
+            add(window, rect);
+            pos_x += brick_width;
+        }
+        pos_y += brick_height;
+        pos_x = HORIZONTAL_GAP/2;
+    }
 }
 
 /**
