@@ -91,6 +91,9 @@ int main(void)
     // keep playing until game over
     while (lives > 0 && bricks > 0)
     {
+		// update scoreboard    
+        updateScoreboard(window, label, points);
+		
         // check for mouse event
         GEvent event = getNextEvent(MOUSE_EVENT);
         
@@ -145,6 +148,7 @@ int main(void)
             {
 				removeGWindow(window, object);
                 y_velocity = -y_velocity;
+				points++;
             }
         }
         
