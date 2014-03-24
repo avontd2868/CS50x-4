@@ -132,6 +132,20 @@ int main(void)
         {
             x_velocity = -x_velocity;
         }
+		
+		GObject object = detectCollision(window, ball);
+        
+        if (object != NULL)
+        {
+            if (object == paddle)
+            {
+                y_velocity = -y_velocity;
+            }
+            else if (strcmp(getType(object), "GRect") == 0)
+            {
+                y_velocity = -y_velocity;
+            }
+        }
         
         // linger before moving again
         pause(10);
