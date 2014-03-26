@@ -1,0 +1,37 @@
+0. 	How many different colors does each format support?
+
+1. 	Which of these formats supports animation?
+
+2. 	What’s the difference between lossy and lossless compression?
+
+3. 	Which of these formats is lossy-compressed?
+
+4.	What happens, technically speaking, when a file is deleted on a FAT file system?
+
+5.	What can someone like you do to ensure (with high probability) that files you delete cannot be recovered?
+
+6.	What’s stdint.h?
+
+7.	What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+
+8.	How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively? (Assume a 32-bit architecture like the CS50 Appliance.)
+
+9.	What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? (Leading bytes used to identify file formats (with high probability) are generally called "magic numbers.)"
+
+10.	What’s the difference between bfSize and biSize?
+
+11.	What does it mean if biHeight is negative?
+
+12.	What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+
+13.	Why might fopen return NULL in copy.c:37?
+
+14.	Why is the third argument to fread always 1 in our code?
+
+15.	What value does copy.c:70 assign padding if bi.biWidth is 3?
+
+16.	What does fseek do?
+
+17.	What is SEEK_CUR?
+
+18. Whodunit?
