@@ -1,8 +1,15 @@
-0. 	How many different colors does each format support?
+0. 	How many different colors does each format (BMP, GIF, JPEG, PNG) support?
+	.bmp  - Supports up to 32-bit color (4,294,967,296 colors).
+	.gif  - Supports its own palette of up to 8-bit color (256 colors) chosen from the 24-bit RGB color space.
+	.jpeg -	Supports up to 24-bit color (16,777,216 colors).
+	.png  - Supports up to 48-bit color (281,474,976,710,656 colors).
 
 1. 	Which of these formats supports animation?
+	.gif supports animation.
 
 2. 	What’s the difference between lossy and lossless compression?
+	Lossy 	 - 
+	Lossless - 
 
 3. 	Which of these formats is lossy-compressed?
 
