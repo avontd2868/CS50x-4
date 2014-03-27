@@ -8,10 +8,12 @@
 	.gif supports animation.
 
 2. 	What’s the difference between lossy and lossless compression?
-	Lossy 	 - 
-	Lossless - 
+	Lossy 	 - When the image is compressed data is lost, can never get the original uncompressed data back.
+			   If you were to continue saving the same file over and over again, you will lose quality.
+	Lossless - The image is compressed, but it is possible to get the original uncompressed data back.
 
 3. 	Which of these formats is lossy-compressed?
+	JPEG is lossy-compressed.
 
 4.	What happens, technically speaking, when a file is deleted on a FAT file system?
 
