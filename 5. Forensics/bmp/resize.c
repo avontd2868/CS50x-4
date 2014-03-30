@@ -20,6 +20,16 @@ int main(int argc, char* argv[])
         printf("Usage: ./resize factor infile outfile\n");
         return 1;
     }
+	
+	// convert string to number
+    int resize_factor = atoi(argv[1]);
+    
+    // check whether resize factor is positive
+    if (resize_factor < 1)
+    {
+        printf("Please enter a postive resize factor\n");
+        return 1;
+    }
 
     // remember filenames
     char* infile = argv[2];
